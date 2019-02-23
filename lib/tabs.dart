@@ -25,8 +25,8 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
           child: Text("WhatsApp")
         ),
         bottom: TabBar(
-          isScrollable: true,
           controller: _tabController,
+          indicatorColor: Colors.white,
           tabs: <Widget>[
             Tab(icon: Icon(Icons.camera_alt)),
             Tab(text: "CHATS"),
