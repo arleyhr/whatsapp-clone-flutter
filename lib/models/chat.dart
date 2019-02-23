@@ -40,19 +40,19 @@ List<ChatModel> messagesData = [
   new ChatModel(
     name: 'Nevaeh Little',
     imageUrl: 'https://randomuser.me/api/portraits/women/7.jpg',
-    message: ' Pellentesque arcu lacus, cursus non viverra egestas',
+    message: 'Etiam laoreet quis dolor nec auctor',
     time: '8:10 AM'
   ),
   new ChatModel(
-    name: 'Nevaeh Little',
-    imageUrl: 'https://randomuser.me/api/portraits/women/7.jpg',
-    message: ' Pellentesque arcu lacus, cursus non viverra egestas',
-    time: '8:01 AM'
+    name: 'Deann Ford',
+    imageUrl: 'https://randomuser.me/api/portraits/women/66.jpg',
+    message: 'Pellentesque arcu lacus, cursus non viverra egestas',
+    time: '8:04 AM'
   ),
   new ChatModel(
     name: 'Savannah Miles',
     imageUrl: 'https://randomuser.me/api/portraits/women/20.jpg',
-    message: 'Praesent id neque nec lorem egestas imperdiet. Sed nec sem sed purus varius lacinia',
+    message: 'per inceptos himenaeos',
     time: '8:01 AM'
   ),
   new ChatModel(
