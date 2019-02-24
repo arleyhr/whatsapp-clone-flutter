@@ -48,7 +48,8 @@ class ChatTile extends StatelessWidget {
         message,
         overflow: TextOverflow.ellipsis,
         maxLines: 1,
-      )
+      ),
+      onTap: onTap,
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/models/chat.dart';
 
+import 'package:whatsapp_clone/screens/chat_detail.dart';
+
 import 'package:whatsapp_clone/widgets/chat_tile.dart';
 class ChatsScreen extends StatefulWidget {
   _ChatsScreenState createState() => _ChatsScreenState();
@@ -25,7 +27,13 @@ class _ChatsScreenState extends State<ChatsScreen> {
               time: item.time,
               message: item.message,
               onTap: () {
-                debugPrint("hey");
+                var route = new MaterialPageRoute(
+                  builder: (BuildContext context) => new ChatDetail(
+                      name: item.name,
+                      photo: item.imageUrl
+                    )
+                );
+                Navigator.of(context).push(route);
               }
             )
           ]

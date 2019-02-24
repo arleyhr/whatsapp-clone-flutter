@@ -20,11 +20,19 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        elevation: 10.0,
+        child: Icon(
+          Icons.message,
+          color: Colors.white,
+        )
+      ),
       appBar: AppBar(
         title: Center(
           child: Text("WhatsApp")
         ),
         bottom: TabBar(
+          isScrollable: true,
           controller: _tabController,
           indicatorColor: Colors.white,
           tabs: <Widget>[
@@ -35,14 +43,18 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
           ],
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: <Widget>[
-          new CameraScreen(),
-          new ChatsScreen(),
-          new StatusScreen(),
-          new CallScreen()
-        ],
+      body: Center(
+        child: Center(
+          child: TabBarView(
+            controller: _tabController,
+            children: <Widget>[
+              new CameraScreen(),
+              new ChatsScreen(),
+              new StatusScreen(),
+              new CallScreen()
+            ],
+          ),
+        ),
       ),
     );
   }
