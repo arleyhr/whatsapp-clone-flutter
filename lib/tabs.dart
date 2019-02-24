@@ -28,9 +28,7 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
         )
       ),
       appBar: AppBar(
-        title: Center(
-          child: Text("WhatsApp")
-        ),
+        title: Text("WhatsApp"),
         bottom: TabBar(
           isScrollable: true,
           controller: _tabController,
@@ -42,6 +40,10 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
             Tab(text: "LLAMADAS"),
           ],
         ),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.search, color: Colors.white)),
+          IconButton(icon: Icon(Icons.more_vert, color: Colors.white))
+        ],
       ),
       body: Center(
         child: Center(

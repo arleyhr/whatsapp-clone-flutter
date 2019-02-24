@@ -15,7 +15,31 @@ class _ChatDetailState extends State<ChatDetail> {
     return Container(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(widget.name),
+          title: Row(
+            children: <Widget>[
+              ClipOval(
+                child: Image.network(
+                  widget.photo,
+                  fit: BoxFit.cover,
+                  width: 40.0,
+                  height: 40.0,
+                )
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 10.0),
+                child: Text(
+                  widget.name,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(),
+                ),
+              )
+            ],
+          ),
+          actions: <Widget>[
+            // IconButton(icon: Icon(Icons.videocam, color: Colors.white)),
+            IconButton(icon: Icon(Icons.call, color: Colors.white)),
+            IconButton(icon: Icon(Icons.more_vert, color: Colors.white))
+          ],
         ),
       ),
     );
