@@ -27,11 +27,7 @@ class _ChatDetailState extends State<ChatDetail> {
               ),
               Container(
                 margin: EdgeInsets.only(left: 10.0),
-                child: Text(
-                  widget.name,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(),
-                ),
+                child: Text(widget.name),
               )
             ],
           ),
