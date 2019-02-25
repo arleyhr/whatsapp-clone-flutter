@@ -1,6 +1,6 @@
-# whatsapp_clone
+# WhatsApp Clone with Flutter
 
-A new Flutter project.
+![screenshot-1](https://github.com/arleyhr/whatsapp-clone-flutter/blob/master/screenshots/screenshot1.png?raw=true)
 
 ## Getting Started
 
