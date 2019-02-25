@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class PhotoHero extends StatelessWidget {
   final String heroID;
@@ -24,10 +25,12 @@ class PhotoHero extends StatelessWidget {
             color: Colors.transparent,
             child: InkWell(
               onTap: onTap,
-              child: Image.network(
-                photo,
-                fit: BoxFit.contain
-              ),
+              child: FadeInImage.memoryNetwork(
+                placeholder: kTransparentImage,
+                image: photo,
+                fit: BoxFit.contain,
+                fadeInCurve: Curves.decelerate,
+              )
             ),
           ),
         ),
