@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/widgets/photo_hero.dart';
 
 class ChatTile extends StatelessWidget {
   ChatTile({
@@ -15,16 +16,37 @@ class ChatTile extends StatelessWidget {
   final String time;
   final Function onTap;
 
+  _buildHeroPhoto(context) {
+    var route = MaterialPageRoute(
+      builder: (BuildContext context) {
+        return Scaffold(
+          body: Container(
+            color: Colors.black,
+            child: Center(
+              child: PhotoHero(
+                heroID: imageUrl,
+                photo: imageUrl,
+                width: MediaQuery.of(context).size.width,
+                onTap: () => Navigator.of(context).pop()
+              ),
+            )
+          )
+        );
+      }
+    );
+    return PhotoHero(
+        heroID: imageUrl,
+        photo: imageUrl,
+        width: 50.0,
+        onTap: () => Navigator.of(context).push(route)
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: ClipOval(
-          child: Image.network(
-            imageUrl,
-            fit: BoxFit.cover,
-            width: 50.0,
-            height: 50.0,
-          )
+        child: _buildHeroPhoto(context)
       ),
       title: Row(
         children: <Widget>[
@@ -47,7 +69,7 @@ class ChatTile extends StatelessWidget {
       subtitle: Text(
         message,
         overflow: TextOverflow.ellipsis,
-        maxLines: 1,
+        maxLines: 1
       ),
       onTap: onTap,
     );
