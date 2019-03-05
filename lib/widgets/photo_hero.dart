@@ -31,7 +31,7 @@ class PhotoHero extends StatelessWidget {
                 fit: BoxFit.contain,
                 fadeInCurve: Curves.decelerate,
               )
-            ),
+            )
           ),
         ),
       ),

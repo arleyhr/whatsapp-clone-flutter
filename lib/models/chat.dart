@@ -74,3 +74,4 @@ List<ChatModel> messagesData = [
     time: '5:28 AM'
   ),
 ];
+

@@ -30,14 +30,13 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
       appBar: AppBar(
         title: Text("WhatsApp"),
         bottom: TabBar(
-          isScrollable: true,
           controller: _tabController,
           indicatorColor: Colors.white,
           tabs: <Widget>[
             Tab(icon: Icon(Icons.camera_alt)),
             Tab(text: "CHATS"),
-            Tab(text: "ESTADOS"),
-            Tab(text: "LLAMADAS"),
+            Tab(text: "STATUS"),
+            Tab(text: "CALLS"),
           ],
         ),
         actions: <Widget>[
@@ -45,19 +44,15 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
           IconButton(icon: Icon(Icons.more_vert, color: Colors.white))
         ],
       ),
-      body: Center(
-        child: Center(
-          child: TabBarView(
-            controller: _tabController,
-            children: <Widget>[
-              new CameraScreen(),
-              new ChatsScreen(),
-              new StatusScreen(),
-              new CallScreen()
-            ],
-          ),
-        ),
-      ),
-    );
+      body: TabBarView(
+              controller: _tabController,
+              children: <Widget>[
+                new CameraScreen(),
+                new ChatsScreen(),
+                new StatusScreen(),
+                new CallScreen()
+              ],
+            )
+          );
   }
 }
