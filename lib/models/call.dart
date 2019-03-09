@@ -3,25 +3,25 @@ class CallModel {
   final String photo;
   final String timeAgo;
   final bool seen;
-  final bool outgoingCall;
-  CallModel({ this.name, this.photo, this.timeAgo, this.seen = false, this.outgoingCall = false });
+  final bool callMade;
+  CallModel({ this.name, this.photo, this.timeAgo, this.seen = false, this.callMade = false });
 }
 
 
-List<CallModel> statuses = [
+List<CallModel> calls = [
 
   new CallModel(
     name: 'Nevaeh Little',
     photo: 'https://randomuser.me/api/portraits/women/7.jpg',
     timeAgo: '15 minutes ago',
     seen: true,
-    outgoingCall: true
+    callMade: true
   ),
   new CallModel(
     name: 'Corey Jacobs',
     photo: 'https://randomuser.me/api/portraits/men/55.jpg',
     timeAgo: '10 minutes ago',
-    outgoingCall: true
+    callMade: true
   ),
   new CallModel(
       name: 'Ivan Cunningham',
@@ -34,7 +34,7 @@ List<CallModel> statuses = [
       photo: 'https://randomuser.me/api/portraits/men/3.jpg',
       timeAgo: '1 hour ago',
       seen: true,
-      outgoingCall: true
+      callMade: true
   ),
   new CallModel(
     name: 'Deann Ford',
