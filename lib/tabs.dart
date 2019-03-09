@@ -12,23 +12,75 @@ class WhatAppTabs extends StatefulWidget {
 
 class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStateMixin {
   TabController _tabController;
+  var currentFabIndex;
+
+  final List fabs = [
+    FloatingActionButton(
+      child: Icon(
+        Icons.camera_alt,
+        color: Colors.white,
+      ),
+      onPressed: (){},
+    ),
+    FloatingActionButton(
+      child: Icon(
+        Icons.message,
+        color: Colors.white,
+      ),
+      onPressed: (){},
+    ),
+    Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.only(bottom: 5.0, right: 5.0),
+          child: FloatingActionButton(
+            backgroundColor: Color(0xFFECEFF1),
+            mini: true,
+            child: Icon(
+              Icons.edit,
+              color: Colors.grey,
+            ),
+            onPressed: (){},
+          )
+        ),
+        FloatingActionButton(
+          child: Icon(
+            Icons.camera_alt,
+            color: Colors.white,
+          ),
+          onPressed: (){},
+        ),
+      ],
+    ),
+    FloatingActionButton(
+      child: Icon(
+        Icons.call,
+        color: Colors.white,
+      ),
+      onPressed: (){},
+    ),
+  ];
+
+  void _getFab () {
+    setState(() {
+      currentFabIndex = _tabController.index;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
     _tabController = new TabController(vsync: this, initialIndex: 1, length: 4);
+    _tabController.addListener(_getFab);
+    currentFabIndex = 0;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        elevation: 10.0,
-        child: Icon(
-          Icons.message,
-          color: Colors.white,
-        )
-      ),
+      floatingActionButton: fabs[currentFabIndex],
       appBar: AppBar(
         title: Text("WhatsApp"),
         bottom: TabBar(
@@ -42,8 +94,8 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
           ],
         ),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.search, color: Colors.white)),
-          IconButton(icon: Icon(Icons.more_vert, color: Colors.white))
+          IconButton(icon: Icon(Icons.search, color: Colors.white), onPressed: () {}),
+          IconButton(icon: Icon(Icons.more_vert, color: Colors.white), onPressed: () {})
         ],
       ),
       body: TabBarView(

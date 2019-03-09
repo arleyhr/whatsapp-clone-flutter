@@ -43,7 +43,8 @@ class CallScreen extends StatelessWidget {
             icon: Icon(
               Icons.call,
               color: Theme.of(context).primaryColor
-            )
+            ),
+            onPressed: () {}
           ),
         );
       }
