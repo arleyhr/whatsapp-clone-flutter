@@ -33,62 +33,63 @@ Widget _buildSectionHeader(context, title) {
             title,
             style: TextStyle(
               color: Colors.grey
-            ),
-          ),
+            )
+          )
         );
 }
 
 Widget _buildRecentUpdates(context, title, recentUpdates) {
-  return Column(
-    children: <Widget>[
-      _buildSectionHeader(context, title),
-      ListView.builder(
-        shrinkWrap: true,
-        physics: ClampingScrollPhysics(),
-        itemCount: recentUpdates.length,
-        itemBuilder: (context, i) {
-          var item = recentUpdates[i];
+  return SliverList(
+    delegate: SliverChildListDelegate(
+      [
+        _buildSectionHeader(context, title),
+        ListView.builder(
+          shrinkWrap: true,
+          physics: ClampingScrollPhysics(),
+          itemCount: recentUpdates.length,
+          itemBuilder: (context, i) {
+            final item = recentUpdates[i];
 
-          return ListTile(
-            leading: Container(
-              width: 50.0,
-              height: 50.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  fit:BoxFit.cover,
-                  image: NetworkImage(item.photo)
+            return ListTile(
+              leading: Container(
+                width: 50.0,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    fit:BoxFit.cover,
+                    image: NetworkImage(item.photo)
+                  )
+                ),
+              ),
+              title: Text(
+                item.name,
+                style: TextStyle(
+                  fontWeight: FontWeight.w600
                 )
               ),
-            ),
-            title: Text(
-              item.name,
-              style: TextStyle(
-                fontWeight: FontWeight.w600
-              )
-            ),
-            subtitle: Text(
-              item.timeAgo
-            ),
-          );
-        },
-      )
-    ]
+              subtitle: Text(
+                item.timeAgo
+              ),
+            );
+          },
+        )
+      ]
+    )
   );
 }
 
 class StatusScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Column(
-        children: <Widget>[
-          _buildMyStatus(),
-          _buildRecentUpdates(context, 'Recent updates', statuses),
-          _buildRecentUpdates(context, 'Viewed updates', statuses)
-        ],
-      ),
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverToBoxAdapter(
+          child: _buildMyStatus(),
+        ),
+        _buildRecentUpdates(context, 'Recent updates', statuses),
+        _buildRecentUpdates(context, 'Viewed updates', statuses)
+      ]
     );
   }
 }
