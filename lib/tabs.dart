@@ -5,6 +5,8 @@ import 'package:whatsapp_clone/screens/chats.dart';
 import 'package:whatsapp_clone/screens/status.dart';
 
 class WhatAppTabs extends StatefulWidget {
+  var cameras;
+  WhatAppTabs({ this.cameras });
   _WhatAppTabsState createState() => _WhatAppTabsState();
 }
 
@@ -47,7 +49,7 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
       body: TabBarView(
               controller: _tabController,
               children: <Widget>[
-                new CameraScreen(),
+                new CameraScreen(cameras: widget.cameras),
                 new ChatsScreen(),
                 new StatusScreen(),
                 new CallScreen()

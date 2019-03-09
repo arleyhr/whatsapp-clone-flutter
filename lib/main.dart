@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/tabs.dart';
+import 'package:camera/camera.dart';
 
-void main() => runApp(WhatsApp());
+List<CameraDescription> cameras;
+
+Future<void> main() async {
+  cameras = await availableCameras();
+  runApp(WhatsApp());
+}
 
 
 class WhatsApp extends StatelessWidget {
@@ -14,7 +20,7 @@ class WhatsApp extends StatelessWidget {
         accentColor: new Color(0xff25D366),
       ),
       debugShowCheckedModeBanner: false,
-      home: new WhatAppTabs()
+      home: new WhatAppTabs(cameras: cameras)
     );
   }
 }
