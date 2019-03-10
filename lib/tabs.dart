@@ -3,6 +3,7 @@ import 'package:whatsapp_clone/screens/calls.dart';
 import 'package:whatsapp_clone/screens/camera.dart';
 import 'package:whatsapp_clone/screens/chats.dart';
 import 'package:whatsapp_clone/screens/status.dart';
+import 'package:whatsapp_clone/widgets/wh_fab.dart';
 
 class WhatAppTabs extends StatefulWidget {
   var cameras;
@@ -15,51 +16,41 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
   var currentFabIndex;
 
   final List fabs = [
-    FloatingActionButton(
-      child: Icon(
-        Icons.camera_alt,
-        color: Colors.white,
-      ),
-      onPressed: (){},
+    WhatsAppFab(
+      icon: Icon(Icons.camera_alt, color: Colors.white),
+      onPressed: (){}
     ),
-    FloatingActionButton(
-      child: Icon(
-        Icons.message,
-        color: Colors.white,
-      ),
-      onPressed: (){},
+    WhatsAppFab(
+      icon: Icon(Icons.message, color: Colors.white),
+      onPressed: (){}
     ),
     Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         Container(
-          margin: EdgeInsets.only(bottom: 5.0, right: 5.0),
-          child: FloatingActionButton(
-            backgroundColor: Color(0xFFECEFF1),
-            mini: true,
-            child: Icon(
-              Icons.edit,
-              color: Colors.grey,
+          margin: EdgeInsets.only(bottom: 10.0, right: 5.0),
+          child:
+            WhatsAppFab(
+              backgroundColor: Color(0xFFECEFF1),
+              width: 45.0,
+              height: 45.0,
+              icon: Icon(
+                Icons.edit,
+                color: Colors.grey,
+              ),
+              onPressed: (){}
             ),
-            onPressed: (){},
-          )
         ),
-        FloatingActionButton(
-          child: Icon(
-            Icons.camera_alt,
-            color: Colors.white,
-          ),
-          onPressed: (){},
+        WhatsAppFab(
+          icon: Icon(Icons.camera_alt, color: Colors.white),
+          onPressed: (){}
         ),
       ],
     ),
-    FloatingActionButton(
-      child: Icon(
-        Icons.call,
-        color: Colors.white,
-      ),
-      onPressed: (){},
+    WhatsAppFab(
+      icon: Icon(Icons.add_call, color: Colors.white),
+      onPressed: (){}
     ),
   ];
 
@@ -74,7 +65,7 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
     super.initState();
     _tabController = new TabController(vsync: this, initialIndex: 1, length: 4);
     _tabController.addListener(_getFab);
-    currentFabIndex = 0;
+    currentFabIndex = 1;
   }
 
   @override
