@@ -95,7 +95,24 @@ class _WhatAppTabsState extends State<WhatAppTabs> with SingleTickerProviderStat
         ),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.search, color: Colors.white), onPressed: () {}),
-          IconButton(icon: Icon(Icons.more_vert, color: Colors.white), onPressed: () {})
+          PopupMenuButton(
+            child: Icon(Icons.more_vert, color: Colors.white),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: "1",
+                child: Text('New group'),
+              ),
+              PopupMenuItem(
+                value: "2",
+                child: Text('Whatsapp Web'),
+              ),
+              PopupMenuItem(
+                value: "3",
+                child: Text('Settings'),
+              )
+            ],
+          ),
+          // IconButton(icon: Icon(Icons.more_vert, color: Colors.white), onPressed: () {})
         ],
       ),
       body: TabBarView(
